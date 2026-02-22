@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 
 const projects = [
   {
@@ -18,7 +19,8 @@ const projects = [
     ],
     category: "AI/ML",
     githubUrl: "",
-    featured: true
+    featured: true,
+    // image: "/images/digital-ag-leaf.jpg" // Added image
   },
   {
     id: 2,
@@ -97,7 +99,7 @@ export default function Projects() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-light text-text-primary mb-16 text-center">
             Featured Projects
           </h2>
 
@@ -111,21 +113,34 @@ export default function Projects() {
                 className="group cursor-pointer"
                 onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 h-full">
+                <div className="glass-effect rounded-xl p-6 hover:border-accent-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-accent-primary/20 h-full">
+                  {/* Project Image (if exists) */}
+                  {project.image && (
+                    <div className="mb-4 overflow-hidden rounded-lg">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+
                   {/* Category Badge */}
                   <div className="mb-4">
-                    <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">
+                    <span className="px-3 py-1 bg-accent-primary/20 text-accent-primary rounded-full text-xs font-medium">
                       {project.category}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-accent-primary group-hover:to-accent-secondary group-hover:bg-clip-text transition-all duration-300">
                     {project.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                  <p className="text-text-secondary mb-4 text-sm leading-relaxed">
                     {project.shortDescription}
                   </p>
 
@@ -134,13 +149,13 @@ export default function Projects() {
                     {project.technologies.slice(0, 4).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-blue-500/10 text-blue-300 rounded text-xs"
+                        className="px-2 py-1 bg-accent-secondary/10 text-accent-secondary rounded text-xs"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <span className="px-2 py-1 bg-blue-500/10 text-blue-300 rounded text-xs">
+                      <span className="px-2 py-1 bg-accent-secondary/10 text-accent-secondary rounded text-xs">
                         +{project.technologies.length - 4} more
                       </span>
                     )}
@@ -153,13 +168,13 @@ export default function Projects() {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="border-t border-purple-500/20 pt-4 mt-4"
+                      className="border-t border-accent-primary/20 pt-4 mt-4"
                     >
-                      <h4 className="text-sm font-semibold text-purple-400 mb-2">Key Highlights:</h4>
+                      <h4 className="text-sm font-semibold text-accent-primary mb-2">Key Highlights:</h4>
                       <ul className="space-y-2">
                         {project.highlights.map((highlight, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-gray-300 text-sm">
-                            <span className="text-purple-400 mt-1 flex-shrink-0">▹</span>
+                          <li key={idx} className="flex items-start gap-2 text-text-secondary text-sm">
+                            <span className="text-accent-primary mt-1 flex-shrink-0">▹</span>
                             <span>{highlight}</span>
                           </li>
                         ))}
@@ -174,7 +189,7 @@ export default function Projects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-purple-400 hover:text-pink-400 transition-colors text-sm flex items-center gap-1"
+                        className="text-accent-primary hover:text-accent-secondary transition-colors text-sm flex items-center gap-1"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -188,7 +203,7 @@ export default function Projects() {
                         href={project.paperUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-purple-400 hover:text-pink-400 transition-colors text-sm flex items-center gap-1"
+                        className="text-accent-primary hover:text-accent-secondary transition-colors text-sm flex items-center gap-1"
                         onClick={(e) => e.stopPropagation()}
                       >
                         📄 Paper

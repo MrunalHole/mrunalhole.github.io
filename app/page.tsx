@@ -6,20 +6,20 @@ import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
 import Highlights from '@/components/Highlights'
 import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen bg-dark-bg">
       <Navbar />
-      <main className="min-h-screen bg-dark-bg">
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Highlights />
-        <Contact />
-      </main>
-    </>
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Skills />
+      <Highlights />
+      <Contact />
+      <Footer />
+    </main>
   )
 }

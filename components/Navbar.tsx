@@ -35,24 +35,22 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* CHANGE: Logo - Lemon yellow color */}
+          {/* Logo */}
           <Link href="/" className="group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="text-2xl md:text-3xl font-bold"
             >
-              {/* Lemon yellow MH logo */}
               {/* <span className="text-yellow-300">MH</span> */}
-              {/* Alternative white (uncomment to try): */}
               <span className="text-white">MH</span>
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          {/* CHANGE: Increased font size, higher opacity, moved left */}
-          {/* <div className="hidden md:flex items-center gap-8">
-            {/* Current: Right-aligned (default) */}
-            {/* {navItems.map((item, index) => (
+          {/* ============================================ */}
+          {/* OPTION 1: LEFT-ALIGNED NAVIGATION */}
+          {/* ============================================ */}
+          {/* <div className="hidden md:flex items-center gap-8 ml-12">
+            {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
@@ -61,7 +59,6 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
-                  // CHANGE: Larger font (text-base), higher opacity (text-text-primary)
                   className="text-text-primary hover:text-yellow-300 transition-colors duration-300 text-base font-medium relative group"
                 >
                   {item.name}
@@ -70,9 +67,15 @@ export default function Navbar() {
               </motion.div>
             ))}
           </div> */}
+          {/* ============================================ */}
 
-          {/* Alternative: Center-aligned navigation (uncomment to try) */}
-          <div className="hidden md:flex items-center justify-center flex-1 gap-8 ml-12">
+          {/* ============================================ */}
+          {/* OPTION 2: CENTER-ALIGNED NAVIGATION (CURRENT) */}
+          {/* ============================================ */}
+          {/* <div className="hidden md:flex items-center justify-center flex-1 gap-8 ml-12">  */}
+            {/* Current spacing: gap-8 (32px) */}
+            {/* More spacious: gap-12 (48px) - uncomment line below and comment line above */}
+            <div className="hidden md:flex items-center justify-center flex-1 gap-12 ml-12">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -90,6 +93,30 @@ export default function Navbar() {
               </motion.div>
             ))}
           </div>
+          {/* ============================================ */}
+
+          {/* ============================================ */}
+          {/* OPTION 3: RIGHT-ALIGNED NAVIGATION */}
+          {/* ============================================ */}
+          {/* <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Link
+                  href={item.href}
+                  className="text-text-primary hover:text-yellow-300 transition-colors duration-300 text-base font-medium relative group"
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              </motion.div>
+            ))}
+          </div> */}
+          {/* ============================================ */}
 
           {/* Mobile Menu Button */}
           <button

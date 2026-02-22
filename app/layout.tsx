@@ -18,6 +18,7 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' })
 // const outfit = Outfit({ subsets: ['latin'], display: 'swap' })
 
 import './globals.css'
+import ScrollToTop from './ScrollToTop'
 
 export const metadata: Metadata = {
   title: 'Mrunal Hole | AI Engineer & Data Scientist',
@@ -33,6 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
       {/* Change to: ${montserrat.className} or ${raleway.className} or ${outfit.className} */}
+        <ScrollToTop />
         {children}
       </body>
     </html>

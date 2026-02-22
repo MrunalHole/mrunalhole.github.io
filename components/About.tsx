@@ -62,7 +62,7 @@ export default function About() {
                 At <span className="text-accent-primary">The Ohio State University</span>, I'm working on everything from automated AI curriculum generation for high schools to multimodal video synthesis for behavioral health. 
               </p>
               <p className="text-base text-text-secondary leading-relaxed mb-4">
-                My background spans <span className="text-accent-secondary">data engineering at Persistent Systems</span>—where I optimized enterprise data warehouses, built CI/CD pipelines, and reduced processing errors by 30%—and cutting-edge computer vision research in geospatial analysis and medical imaging.
+                My background spans <span className="text-accent-secondary">data engineering at Persistent Systems</span>, where I optimized enterprise data warehouses, built CI/CD pipelines, and reduced processing errors by 30%, and cutting-edge computer vision research in geospatial analysis and medical imaging.
               </p>
               <p className="text-base text-text-secondary leading-relaxed">
                 I'm actively seeking roles where I can combine my passion for <span className="text-accent-primary">data systems</span>, <span className="text-accent-secondary">ML engineering</span>, and building tools that genuinely help people.

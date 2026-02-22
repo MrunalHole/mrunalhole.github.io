@@ -3,8 +3,21 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
+  // Add state for language toggle
+  const [isGerman, setIsGerman] = useState(false)
+
+  // Toggle between English and German every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsGerman((prev) => !prev)
+    }, 2000) // Change language every 2 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -74,7 +87,16 @@ export default function Hero() {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-text-primary mb-4 sm:mb-6 leading-tight"
             // Original: className="text-4xl md:text-6xl lg:text-7xl font-light text-text-primary mb-6"
           >
-            Hey! I'm{' '}
+            {/* Animated text that switches between English and German */}
+            <motion.span
+              key={isGerman ? 'german' : 'english'}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+            >
+              {isGerman ? 'Hallo! Ich bin' : "Hey! I'm"}
+            </motion.span>{' '}
             {/* CHANGE 4: Lemon yellow color for name */}
             {/* <span className="text-yellow-300 font-normal">
               Mrunal Hole
