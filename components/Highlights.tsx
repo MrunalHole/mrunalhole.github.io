@@ -58,7 +58,8 @@ export default function Highlights() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
+          {/* FIXED: Consistent heading style */}
+          <h2 className="text-4xl md:text-5xl font-light text-text-primary mb-16 text-center">
             Highlights & Achievements
           </h2>
 
@@ -71,7 +72,8 @@ export default function Highlights() {
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 className="group"
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                {/* FIXED: Consistent glass-effect styling */}
+                <div className="glass-effect rounded-xl p-6 hover:border-accent-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-accent-primary/20">
                   <div className="flex items-start gap-4">
                     {/* Icon */}
                     <div className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -81,17 +83,17 @@ export default function Highlights() {
                     {/* Content */}
                     <div className="flex-grow">
                       <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">
+                        <span className="px-3 py-1 bg-accent-primary/20 text-accent-primary rounded-full text-xs font-medium">
                           {highlight.type}
                         </span>
-                        <span className="text-gray-400 text-sm">{highlight.date}</span>
+                        <span className="text-text-muted text-sm">{highlight.date}</span>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
+                      <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-accent-primary group-hover:to-accent-secondary group-hover:bg-clip-text transition-all duration-300">
                         {highlight.title}
                       </h3>
                       
-                      <p className="text-gray-300 leading-relaxed">
+                      <p className="text-text-secondary leading-relaxed">
                         {highlight.description}
                       </p>
 
@@ -100,7 +102,7 @@ export default function Highlights() {
                           href={highlight.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 mt-3 text-purple-400 hover:text-pink-400 transition-colors duration-300 text-sm"
+                          className="inline-flex items-center gap-2 mt-3 text-accent-primary hover:text-accent-secondary transition-colors duration-300 text-sm"
                         >
                           View Details
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

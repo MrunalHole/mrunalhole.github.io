@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
@@ -9,11 +9,11 @@ export default function Hero() {
   // Add state for language toggle
   const [isGerman, setIsGerman] = useState(false)
 
-  // Toggle between English and German every 4 seconds
+  // Toggle between English and German every 2.5 seconds (updated from 2 seconds)
   useEffect(() => {
     const interval = setInterval(() => {
       setIsGerman((prev) => !prev)
-    }, 2000) // Change language every 2 seconds
+    }, 2500) // Change language every 2.5 seconds (more noticeable)
 
     return () => clearInterval(interval)
   }, [])
@@ -87,8 +87,9 @@ export default function Hero() {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-text-primary mb-4 sm:mb-6 leading-tight"
             // Original: className="text-4xl md:text-6xl lg:text-7xl font-light text-text-primary mb-6"
           >
-            {/* Animated text that switches between English and German */}
-            <motion.span
+            {/* UPDATED: More dramatic slide animation with scale + gradient highlight */}
+            {/* OLD VERSION: */}
+            {/* <motion.span
               key={isGerman ? 'german' : 'english'}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -96,7 +97,25 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
             >
               {isGerman ? 'Hallo! Ich bin' : "Hey! I'm"}
-            </motion.span>{' '}
+            </motion.span>{' '} */}
+            
+            {/* NEW VERSION: More dramatic animation */}
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={isGerman ? 'german' : 'english'}
+                initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -30, scale: 0.8 }}
+                transition={{ 
+                  duration: 0.5,
+                  ease: "easeInOut"
+                }}
+                className="inline-block"
+              >
+                {isGerman ? 'Hallo! Ich bin' : "Hey! I'm"}
+              </motion.span>
+            </AnimatePresence>{' '}
+                        
             {/* CHANGE 4: Lemon yellow color for name */}
             {/* <span className="text-yellow-300 font-normal">
               Mrunal Hole

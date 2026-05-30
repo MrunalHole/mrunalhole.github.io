@@ -16,7 +16,6 @@ const experiences = [
       "Fine-tuned AI models for object detection and segmentation (3 sec avg detection), enhancing computer vision accuracy by 29%",
       "Integrated server with RTMP, RTSP, WebRTC, and HLS protocols for real-time video streaming, enabling low-latency (1-2 sec) playback"
     ],
-    color: "purple"
   },
   {
     company: "Persistent Systems Ltd",
@@ -29,7 +28,6 @@ const experiences = [
       "Streamlined data workflows via Azure Data Factory (ADF), reducing transfer time by 40%",
       "Developed and maintained unit testing documentation, contributing to a 30% decrease in processing errors"
     ],
-    color: "blue"
   },
   {
     company: "Persistent Systems Ltd",
@@ -41,7 +39,6 @@ const experiences = [
       "Implemented CI/CD with ADF using JSON for 20+ pipelines, reducing deployment time by 30% and increasing frequency by 25%",
       "Ensured 100% database consistency across environments via comparison and sync using Azure Data Studio, SSMS, and DevOps"
     ],
-    color: "pink"
   },
   {
     company: "Persistent Systems Ltd",
@@ -52,7 +49,6 @@ const experiences = [
       "Translated SQL server Stored Procedures into DBT models on MySQL and PostgreSQL, ensuring seamless migration",
       "Facilitated the migration of over 30 Tableau reports from SQL Server to Snowflake, resulting in a 30% improvement in reporting efficiency for 50 stakeholders"
     ],
-    color: "cyan"
   }
 ]
 
@@ -69,7 +65,8 @@ export default function Experience() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
+          {/* FIXED: Consistent heading style */}
+          <h2 className="text-4xl md:text-5xl font-light text-text-primary mb-16 text-center">
             Work Experience
           </h2>
 
@@ -82,21 +79,22 @@ export default function Experience() {
                 transition={{ delay: index * 0.2, duration: 0.8 }}
                 className="relative"
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                {/* FIXED: Consistent glass-effect styling */}
+                <div className="glass-effect rounded-xl p-6 md:p-8 hover:border-accent-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-accent-primary/20">
                   {/* Header */}
                   <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-white mb-1">{exp.role}</h3>
-                    <p className={`text-${exp.color}-400 font-semibold text-lg mb-2`}>
+                    <h3 className="text-2xl font-bold text-text-primary mb-1">{exp.role}</h3>
+                    <p className="text-accent-primary font-semibold text-lg mb-2">
                       {exp.company} • {exp.location}
                     </p>
-                    <p className="text-gray-400 text-sm">{exp.period}</p>
+                    <p className="text-text-muted text-sm">{exp.period}</p>
                   </div>
 
                   {/* Highlights */}
                   <ul className="space-y-3">
                     {exp.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-gray-300">
-                        <span className={`text-${exp.color}-400 mt-1 flex-shrink-0`}>▹</span>
+                      <li key={idx} className="flex items-start gap-3 text-text-secondary">
+                        <span className="text-accent-primary mt-1 flex-shrink-0">▹</span>
                         <span>{highlight}</span>
                       </li>
                     ))}

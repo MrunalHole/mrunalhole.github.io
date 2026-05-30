@@ -121,7 +121,7 @@ export default function Contact() {
               className="mt-8"
             >
               <a
-                href="/resume.pdf"
+                href="/MrunalHole_Resume.pdf"
                 download
                 className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-accent-primary to-accent-secondary text-white rounded-full font-semibold hover:shadow-lg hover:shadow-accent-primary/50 transition-all duration-300 transform hover:scale-105"
               >
